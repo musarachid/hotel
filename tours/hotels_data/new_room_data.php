@@ -163,14 +163,14 @@ else
         }
          // trying to insert into the fuckin table in the data base
 
-        $sql="INSERT INTO rooms( room_name, hotel_id, room_beds, room_capacity, room_price, room_status, room_service, room_pic_1, room_pic_2,room_pic_3,room_pic_4)
-            VALUES('$r_name','$account_id','$r_type','$r_cap','$r_price','available','$r_serv','$filename1','$filename2','$filename3','$filename4')";
+        $sql="INSERT INTO rooms( room_name, hotel_id, room_beds, room_capacity, room_price, room_status, room_service, room_pic_1, room_pic_2,room_pic_3,room_pic_4,category)
+            VALUES('$r_name','$account_id','$r_type','$r_cap','$r_price','available','$r_serv','$filename1','$filename2','$filename3','$filename4','car')";
         if ($conn->query($sql)===TRUE)
         {
             ?>
             <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
                 <span class="badge badge-pill badge-success">Done</span>
-                    You have Succefully created New Room <?php echo "$r_name"; ?> .
+                    You have Succefully created New Tour Car <?php echo "$r_name"; ?> .
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="" onclick="location.reload();">
                 <span aria-hidden="true">&times;</span>
                 </button>

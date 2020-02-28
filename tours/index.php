@@ -354,10 +354,10 @@ if(isset($_SESSION['tours_data_2020']) == false){
                         </li>
                         <li>
                             <a href="index.php?cars">
-                                <i class="fas fa-home"></i>Cars</a>
+                                <i class="fas fa-car"></i>Cars</a>
                         </li>
                         <li>
-                            <a href="index.php?manage_room">
+                            <a href="index.php?manage_cars">
                                 <i class="fas fa-tasks"></i>Cars Management</a>
                         </li>
                         <li>
@@ -584,12 +584,12 @@ if(isset($_SESSION['tours_data_2020']) == false){
             include("room.php");
         }
 
-         elseif(isset($_GET['new_room']))
+         elseif(isset($_GET['new_car']))
         {           
             include("new_room.php");
         }
 
-         elseif(isset($_GET['manage_room']))
+         elseif(isset($_GET['manage_cars']))
         {           
             include("room_management.php");
         }

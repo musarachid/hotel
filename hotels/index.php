@@ -320,18 +320,18 @@ if(isset($_SESSION['hotel_tours_data_2020']) == false){
                 <div class="section__content section__content--p30">
                     
                     <?php
-    if(isset($_GET['complete_profile']))
-        {
-            include("complete_profile.php");
-        }
+                    if(isset($_GET['complete_profile']))
+                        {
+                            include("complete_profile.php");
+                        }
 
 
-         else
-        {
-            include("complete_profile.php");
-        }
+                         else
+                        {
+                            include("complete_profile.php");
+                        }
 
-        ?> 
+                    ?> 
 
                 </div>
             </div>

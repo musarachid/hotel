@@ -61,6 +61,15 @@ if(isset($_SESSION['client_EAR_data_2020']) == false){
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../style.css">
 
+    <style type="">
+        .try {
+                float:  left;
+                width:  100px;
+                height: 100px;
+                background-size: cover;
+            }
+    </style>
+
 </head>
 
 <body>
@@ -109,7 +118,7 @@ if(isset($_SESSION['client_EAR_data_2020']) == false){
                                     <li><a href="./contact.html"><button type="submit" class="form-control btn roberto-btn w-100"><?php echo $username ?> </button></a></li>
                                     <li><a href="index.php?home">Home</a></li>
                                     <li><a href="index.php?room">Rooms</a></li>
-                                    <li><a href="register.php">My Reservations</a></li>
+                                    <li><a href="index.php?reservations">My Reservations</a></li>
                                     <li><a href="?sign=out" id="logout">Log Out</a></li>
                                     
                                 </ul>
@@ -147,6 +156,36 @@ if(isset($_SESSION['client_EAR_data_2020']) == false){
         elseif(isset($_GET['about']))
         {           
             include("about.php");
+        }
+
+        elseif(isset($_GET['reserve']))
+        {           
+            include("make_reservation.php");
+        }
+
+        elseif(isset($_GET['reserve_data']))
+        {           
+            include("make_reservation_data.php");
+        }
+
+        elseif(isset($_GET['reservations']))
+        {           
+            include("my_reservations.php");
+        }
+
+        elseif(isset($_GET['reservation_deny']))
+        {           
+            include("reservation_cancel.php");
+        }
+
+        elseif(isset($_GET['review']))
+        {           
+            include("new_review.php");
+        }
+
+        elseif(isset($_GET['']))
+        {           
+            include("");
         }
 
         elseif(isset($_GET['']))

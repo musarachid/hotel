@@ -1,5 +1,5 @@
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/16.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(../img/bg-img/16.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -24,104 +24,50 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/43.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Room View Sea</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                                <h6>Capacity: <span>Max persion 5</span></h6>
-                                <h6>Bed: <span>King beds</span></h6>
-                                <h6>Services: <span>Wifi, television ...</span></h6>
-                            </div>
-                            <a href="index.php?room_view" class="btn view-detail-btn">View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
 
-                    <!-- Single Room Area -->
+                                             <?php
+
+                                                $sql5="SELECT * from rooms ";
+                                                $result5=$conn->query($sql5);
+
+                                                $a=1;
+
+                                                while ($row5 = $result5->fetch_assoc()) {
+                                                $r_id=$row5['room_id'];
+                                                $r_name=$row5['room_name'];
+                                                $r_bed=$row5['room_beds'];
+                                                $r_price=$row5['room_price'];
+                                                $r_pers=$row5['room_capacity'];
+                                                $r_serv=$row5['room_service'];
+                                                $room_profile=$row5['room_pic_1'];
+
+                                                $id1="Mine".$a;
+                                                $id2="Mine1".$a;
+
+                                                ?> 
                     <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms">
                         <!-- Room Thumbnail -->
                         <div class="room-thumbnail">
-                            <img src="img/bg-img/44.jpg" alt="">
+                            <img style="width: 100%;height: 270px" src="../hotels/rooms_data/<?php echo $r_name ?>/<?php echo $room_profile ?>" alt="<?php echo $r_name ?>">
                         </div>
                         <!-- Room Content -->
                         <div class="room-content">
-                            <h2>Small Room</h2>
-                            <h4>400$ <span>/ Day</span></h4>
+                            <h2><?php echo $r_name ?></h2>
+                            <h4><?php echo $r_price ?>$ <span>/ Day</span></h4>
                             <div class="room-feature">
                                 <h6>Size: <span>30 ft</span></h6>
-                                <h6>Capacity: <span>Max persion 5</span></h6>
-                                <h6>Bed: <span>King beds</span></h6>
-                                <h6>Services: <span>Wifi, television ...</span></h6>
+                                <h6>Capacity: <span>Max persion <?php echo $r_pers ?></span></h6>
+                                <h6>Bed: <span><?php echo $r_bed ?></span></h6>
+                                <h6>Services: <span><?php echo $r_serv ?> ...</span></h6>
                             </div>
-                            <a href="index.php?room_view" class="btn view-detail-btn">View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <form action="index.php?room_view" method="post">
+                                <input style="display: none;" type="text" name="r_id" id="r_id" value="<?php echo $r_id ?>">
+                                <button class="btn " type="submit" >View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                            </form>
                         </div>
                     </div>
-
+                    <?php $a++; }  ?>
                     <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/45.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Premium King Room</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                                <h6>Capacity: <span>Max persion 5</span></h6>
-                                <h6>Bed: <span>King beds</span></h6>
-                                <h6>Services: <span>Wifi, television ...</span></h6>
-                            </div>
-                            <a href="index.php?room_view" class="btn view-detail-btn">View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="700ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/46.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Room Vip King</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                                <h6>Capacity: <span>Max persion 5</span></h6>
-                                <h6>Bed: <span>King beds</span></h6>
-                                <h6>Services: <span>Wifi, television ...</span></h6>
-                            </div>
-                            <a href="index.php?room_view" class="btn view-detail-btn">View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="900ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/47.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Royal Room</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                                <h6>Capacity: <span>Max persion 5</span></h6>
-                                <h6>Bed: <span>King beds</span></h6>
-                                <h6>Services: <span>Wifi, television ...</span></h6>
-                            </div>
-                            <a href="index.php?room_view" class="btn view-detail-btn">View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
 
                     <!-- Pagination -->
                     <nav class="roberto-pagination wow fadeInUp mb-100" data-wow-delay="1000ms">

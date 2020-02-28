@@ -11,7 +11,7 @@
                                 <div class="table-data__tool">
                                     
                                     <div class="table-data__tool-right">
-                                        <a href="index.php?new_room"><button class="au-btn au-btn-icon au-btn--blue au-btn--small" >
+                                        <a href="index.php?new_car"><button class="au-btn au-btn-icon au-btn--blue au-btn--small" >
                                             <i class="zmdi zmdi-plus"></i>Add Car</button></a>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                                 <td id="<?php echo $id1; ?>" style="display: none;" ><?php echo $r_id ?></td>
                                                 <td><?php echo $a ?></td>
                                                 <td>
-                                                   <img style="height:60px;width: 120px;float: left;" src="rooms_data/<?php echo $r_name ?>/<?php echo $room_profile ?>" alt="<?php echo $r_name ?>" />
+                                                   <img style="width: 10%" src="rooms_data/<?php echo $r_name ?>/<?php echo $room_profile ?>" alt="<?php echo $r_name ?>" />
                                                 </td>
                                                 <td><?php echo $r_name ?></td>
                                                 <td><?php echo $r_bed ?></td>
