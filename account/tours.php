@@ -4,11 +4,11 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
-                        <h2 class="page-title">Our Room</h2>
+                        <h2 class="page-title">Our Tours</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Room</li>
+                                <li class="breadcrumb-item active" aria-current="page">Tours</li>
                             </ol>
                         </nav>
                     </div>
@@ -27,7 +27,7 @@
 
                                              <?php
 
-                                                $sql5="SELECT * from rooms where room_status='available' AND  category='room'";
+                                                $sql5="SELECT * from rooms where room_status='available' AND category='car'";
                                                 $result5=$conn->query($sql5);
 
                                                 $a=1;

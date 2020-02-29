@@ -118,6 +118,7 @@ if(isset($_SESSION['client_EAR_data_2020']) == false){
                                     <li><a href="./contact.html"><button type="submit" class="form-control btn roberto-btn w-100"><?php echo $username ?> </button></a></li>
                                     <li><a href="index.php?home">Home</a></li>
                                     <li><a href="index.php?room">Rooms</a></li>
+                                    <li><a href="index.php?tours">Tours</a></li>
                                     <li><a href="index.php?reservations">My Reservations</a></li>
                                     <li><a href="?sign=out" id="logout">Log Out</a></li>
                                     
@@ -183,9 +184,9 @@ if(isset($_SESSION['client_EAR_data_2020']) == false){
             include("new_review.php");
         }
 
-        elseif(isset($_GET['']))
+        elseif(isset($_GET['tours']))
         {           
-            include("");
+            include("tours.php");
         }
 
         elseif(isset($_GET['']))
