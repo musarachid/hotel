@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 07, 2020 at 09:38 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Host: localhost
+-- Generation Time: Mar 02, 2020 at 10:28 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -79,7 +79,7 @@ CREATE TABLE `agent_activity` (
   `act_id` int(255) NOT NULL,
   `id` int(100) NOT NULL,
   `hotel_id` int(255) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -91,6 +91,27 @@ INSERT INTO `agent_activity` (`act_id`, `id`, `hotel_id`, `date`) VALUES
 (2, 2, 1, '2020-01-26 07:17:40'),
 (3, 2, 3, '2020-01-26 09:07:04'),
 (4, 1, 4, '2020-02-03 13:15:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cars`
+--
+
+CREATE TABLE `cars` (
+  `room_id` int(11) NOT NULL,
+  `room_name` text NOT NULL,
+  `hotel_id` int(11) NOT NULL,
+  `room_beds` text NOT NULL,
+  `room_capacity` text NOT NULL,
+  `room_price` text NOT NULL,
+  `room_status` text NOT NULL,
+  `room_service` text NOT NULL,
+  `room_pic_1` text NOT NULL,
+  `room_pic_2` text NOT NULL,
+  `room_pic_3` text NOT NULL,
+  `room_pic_4` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -135,7 +156,7 @@ CREATE TABLE `hotel_tour` (
   `standard` text NOT NULL,
   `manager` text NOT NULL,
   `status` int(11) NOT NULL,
-  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `hotel_approv` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -162,11 +183,11 @@ CREATE TABLE `reservation` (
   `room_id` int(11) NOT NULL,
   `check_in` varchar(40) NOT NULL,
   `check_out` varchar(40) NOT NULL,
-  `res_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `res_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `client_names` varchar(255) NOT NULL,
   `card_no` int(50) NOT NULL,
   `client_mail` varchar(100) NOT NULL,
-  `res_stat` varchar(10) NOT NULL
+  `res_stat` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -177,7 +198,7 @@ INSERT INTO `reservation` (`res_id`, `res_data`, `client_id`, `room_id`, `check_
 (8, 'Roo-Nig-155', 1, 1, '2020-02-13', '2020-02-15', '2020-02-06 15:28:57', 'Nigisubizo King', 12345677, 'simba@gmail.com', ''),
 (9, 'Roo-Nig-822', 1, 1, '2020-02-13', '2020-02-15', '2020-02-06 15:29:01', 'Nigisubizo King', 12345677, 'simba@gmail.com', ''),
 (10, 'Roo-Nig-431', 1, 1, '2020-02-13', '2020-02-15', '2020-02-06 15:29:52', 'Nigisubizo King', 12345677, 'simba@gmail.com', ''),
-(11, 'Roo-Nig-745', 1, 1, '2020-02-13', '2020-02-15', '2020-02-06 15:30:56', 'Nigisubizo King', 12345677, 'simba@gmail.com', '');
+(13, 'Roo-Gak-339', 1, 1, '2020-02-08', '2020-02-16', '2020-02-29 04:10:50', 'Gakwandi Gisele', 121312, 'simba@gmail.com', NULL);
 
 -- --------------------------------------------------------
 
@@ -191,7 +212,7 @@ CREATE TABLE `reviews` (
   `room_id` int(11) NOT NULL,
   `message` text NOT NULL,
   `rating` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -221,7 +242,8 @@ INSERT INTO `reviews` (`id`, `client`, `room_id`, `message`, `rating`, `date`) V
 (20, 'simba', 1, 'as', 4, '2020-02-06 15:06:42'),
 (21, 'simba', 1, 'as', 4, '2020-02-06 15:06:54'),
 (22, 'simba', 4, 'hey\r\n', 3, '2020-02-06 15:16:39'),
-(23, 'simba', 4, 'dsfas', 2, '2020-02-06 15:17:10');
+(23, 'simba', 4, 'dsfas', 2, '2020-02-06 15:17:10'),
+(24, 'simba', 4, 'karabaye\r\n', 3, '2020-03-01 17:25:09');
 
 -- --------------------------------------------------------
 
@@ -241,18 +263,19 @@ CREATE TABLE `rooms` (
   `room_pic_1` text NOT NULL,
   `room_pic_2` text NOT NULL,
   `room_pic_3` text NOT NULL,
-  `room_pic_4` text NOT NULL
+  `room_pic_4` text NOT NULL,
+  `category` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`room_id`, `room_name`, `hotel_id`, `room_beds`, `room_capacity`, `room_price`, `room_status`, `room_service`, `room_pic_1`, `room_pic_2`, `room_pic_3`, `room_pic_4`) VALUES
-(1, 'Room View Sea', 1, 'King beds', '2', '180', 'available', 'Dinner', 'wp3087382-spider-man-into-the-spider-verse-wallpapers.jpg', 'rightwp3087390-spider-man-into-the-spider-verse-wallpapers.jpg', 'wp2536674-single-boy-wallpapers.jpg', 'wp2592457-hacking-wallpaper.png'),
-(2, 'BEn', 1, 'Twin beds', '5', '180', 'available', 'Dinner', 'wp3087370-spider-man-into-the-spider-verse-wallpapers.jpg', 'rightwp3087390-spider-man-into-the-spider-verse-wallpapers.jpg', 'oov48qugpzvexjt9w00d.jpg', 'wp2592457-hacking-wallpaper.png'),
-(3, 'Serena Room 01', 1, 'Queen beds', '5', '180', 'available', 'Dinner', 'wp3087342-spider-man-into-the-spider-verse-wallpapers.jpg', 'rightwp3087382-spider-man-into-the-spider-verse-wallpapers.jpg', 'wp2536674-single-boy-wallpapers.jpg', 'wp2592457-hacking-wallpaper.png'),
-(4, 'Marriot Room 02', 2, 'Single bed', '5', '100', 'occupied', 'Dinner', 'wp2234704-coding-wallpapers.jpg', 'rightwp2592445-hacking-wallpaper.jpg', 'wp2592457-hacking-wallpaper.png', 'wp2592469-hacking-wallpaper (1).jpg');
+INSERT INTO `rooms` (`room_id`, `room_name`, `hotel_id`, `room_beds`, `room_capacity`, `room_price`, `room_status`, `room_service`, `room_pic_1`, `room_pic_2`, `room_pic_3`, `room_pic_4`, `category`) VALUES
+(1, 'Room View Sea', 1, 'King beds', '2', '180', 'occupied', 'Dinner', 'wp3087382-spider-man-into-the-spider-verse-wallpapers.jpg', 'rightwp3087390-spider-man-into-the-spider-verse-wallpapers.jpg', 'wp2536674-single-boy-wallpapers.jpg', 'wp2592457-hacking-wallpaper.png', 'room'),
+(2, 'BEn', 1, 'Twin beds', '5', '180', 'available', 'Dinner', 'wp3087370-spider-man-into-the-spider-verse-wallpapers.jpg', 'rightwp3087390-spider-man-into-the-spider-verse-wallpapers.jpg', 'oov48qugpzvexjt9w00d.jpg', 'wp2592457-hacking-wallpaper.png', 'room'),
+(3, 'Serena Room 01', 1, 'Queen beds', '5', '180', 'available', 'Dinner', 'wp3087342-spider-man-into-the-spider-verse-wallpapers.jpg', 'rightwp3087382-spider-man-into-the-spider-verse-wallpapers.jpg', 'wp2536674-single-boy-wallpapers.jpg', 'wp2592457-hacking-wallpaper.png', 'room'),
+(4, 'Marriot Room 02', 2, 'Single bed', '5', '100', 'available', 'Dinner', 'wp2234704-coding-wallpapers.jpg', 'rightwp2592445-hacking-wallpaper.jpg', 'wp2592457-hacking-wallpaper.png', 'wp2592469-hacking-wallpaper (1).jpg', 'room');
 
 --
 -- Indexes for dumped tables
@@ -275,6 +298,12 @@ ALTER TABLE `agent`
 --
 ALTER TABLE `agent_activity`
   ADD PRIMARY KEY (`act_id`);
+
+--
+-- Indexes for table `cars`
+--
+ALTER TABLE `cars`
+  ADD PRIMARY KEY (`room_id`);
 
 --
 -- Indexes for table `client`
@@ -329,6 +358,12 @@ ALTER TABLE `agent_activity`
   MODIFY `act_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `cars`
+--
+ALTER TABLE `cars`
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
@@ -344,13 +379,13 @@ ALTER TABLE `hotel_tour`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `rooms`

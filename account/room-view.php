@@ -54,16 +54,16 @@
                             <div id="room-thumbnail--slide" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img style="width: 100%;height: 500px;" src="../hotels/rooms_data/<?php echo $r_name ?>/<?php echo $room_profile ?>" alt="<?php echo $r_name ?>" class="d-block w-100" >
+                                        <img style="width: 100%;height: 5l00px;" src="../hotels/rooms_data/<?php echo $r_name ?>/<?php echo $room_profile ?>" alt="<?php echo $r_name ?>" class="d-block w-100" >
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="width: 100%;height: 500px;" src="../hotels/rooms_data/<?php echo $r_name ?>/<?php echo $room_profile_1 ?>" class="d-block w-100" alt="">
+                                        <img style="width: 100%;height: 5l00px;" src="../hotels/rooms_data/<?php echo $r_name ?>/<?php echo $room_profile_1 ?>" class="d-block w-100" alt="">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="width: 100%;height: 500px;" src="../hotels/rooms_data/<?php echo $r_name ?>/<?php echo $room_profile_2 ?>" class="d-block w-100" alt="">
+                                        <img style="width: 100%;height: 5l00px;" src="../hotels/rooms_data/<?php echo $r_name ?>/<?php echo $room_profile_2 ?>" class="d-block w-100" alt="">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="width: 100%;height: 500px;" src="../hotels/rooms_data/<?php echo $r_name ?>/<?php echo $room_profile_3 ?>" class="d-block w-100" alt="">
+                                        <img style="width: 100%;height: 5l00px;" src="../hotels/rooms_data/<?php echo $r_name ?>/<?php echo $room_profile_3 ?>" class="d-block w-100" alt="">
                                     </div>
                                 </div>
 
